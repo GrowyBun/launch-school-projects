@@ -4,7 +4,8 @@ def display_welcome():
 
 def display_result(loan, duration, months, final_payment):
     print(f'Loan Details:\nLoan amount: ${loan:.0f}')
-    print(f'APR: {apr:.2f}%\nLoan Duration: {duration} years ({months} months)')
+    print(f'APR: {apr:.2f}')
+    print(f'Loan Duration: {duration} years ({months} months)')
     print(f'Your monthly payment is ${final_payment:.2f}')
 
 def is_invalid_number(number_str):
@@ -84,7 +85,12 @@ while True:
                                                 monthly_interest_rate,
                                                 loan_month_duration,
                                                 )
-    display_result(loan_amount, loan_year_duration, loan_month_duration, monthly_payment)
+    display_result(
+                   loan_amount,
+                   loan_year_duration,
+                   loan_month_duration,
+                   monthly_payment,
+                   )
     print('Would you like to perform another calculation? (y/n)')
     rerun = input()
     if rerun and rerun[0].lower() != 'y':
