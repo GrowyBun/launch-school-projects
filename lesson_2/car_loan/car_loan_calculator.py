@@ -2,9 +2,9 @@ import math
 def display_welcome():
     print('--- CAR LOAN CALCULATOR ---')
 
-def display_result(loan, duration, months, final_payment):
+def display_result(loan, yearly_rate, duration, months, final_payment):
     print(f'Loan Details:\nLoan amount: ${loan:.0f}')
-    print(f'APR: {apr:.2f}')
+    print(f'APR: {yearly_rate:.2f}%')
     print(f'Loan Duration: {duration} years ({months} months)')
     print(f'Your monthly payment is ${final_payment:.2f}')
 
@@ -67,6 +67,10 @@ def calculate_monthly_payment(
                               monthly_rate,
                               month_duration,
                               ):
+    if monthly_rate == 0:
+        payment = loan / month_duration
+        return payment
+
     payment = loan * (
         monthly_rate /
             (1 - (1 + monthly_rate) ** (-month_duration))
@@ -87,6 +91,7 @@ while True:
                                                 )
     display_result(
                    loan_amount,
+                   apr,
                    loan_year_duration,
                    loan_month_duration,
                    monthly_payment,
