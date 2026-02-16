@@ -1,4 +1,4 @@
-from lesson_2.calculator_messages import messages_dict
+from calculator_messages import messages_dict
 
 def prompt(message):
     print(f"==> {message}")
