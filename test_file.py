@@ -1,11 +1,7 @@
-def add_to_list_safely(item, target_list=None):
-    if target_list is None:
-        target_list = []  # A new list is created for each call
-    target_list.append(item)
-    return target_list
+data = [4, 2, 4, 2, 1, 3, 2, 3, 2, 4, 3]
+unique_data = []
+for item in data:
+    if item not in unique_data:
+        unique_data.append(item)
 
-list_a = add_to_list_safely("A")
-print(list_a)
-
-list_b = add_to_list_safely("B")
-print(list_b)
+print(unique_data)
